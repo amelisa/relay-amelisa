@@ -32,7 +32,7 @@ class NetworkLayer {
   }
 
   supports (...options) {
-
+    return true
   }
 }
 
