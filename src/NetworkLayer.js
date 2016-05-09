@@ -2,6 +2,7 @@ import { Store } from 'react-relay'
 
 class NetworkLayer {
   constructor (model) {
+    if (!model) throw new Error('Model is mandatory in new NetworkLayer(model)')
     this.model = model
   }
 

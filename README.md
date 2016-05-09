@@ -29,7 +29,7 @@ $ npm test
 import { NetworkLayer } from 'relay-amelisa'
 
 Relay.injectNetworkLayer(
-  new NetworkLayer()
+  new NetworkLayer(model)
 )
 ```
 
