@@ -1,4 +1,4 @@
-import { Store } from 'react-relay'
+// import Relay, { Store } from 'react-relay'
 
 class NetworkLayer {
   constructor (model) {
@@ -11,7 +11,12 @@ class NetworkLayer {
   }
 
   async sendQueries (requests) {
-    return Promise.all(requests.map((request) => this._executeRequest(request)))
+    return Promise.all(requests.map((request) => {
+      return this
+        ._executeRequest(request)
+        .then((response) => request.resolve({response}))
+        .catch((err) => request.reject(err))
+    }))
   }
 
   async _executeRequest (request) {
@@ -23,11 +28,12 @@ class NetworkLayer {
 
     let query = this.model.query(graphqlQuery, queryOptions)
     await query.subscribe()
+
     query.on('change', () => {
-      // As there is no subscriptions support in Relay, we use this
+      // There is no official subscriptions support in Relay
       // https://github.com/facebook/relay/issues/541#issuecomment-213093469
-      Store.getStoreData().handleQueryPayload(request.getQuery(), query.get())
     })
+
     return query.get()
   }
 

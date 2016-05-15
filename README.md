@@ -7,8 +7,8 @@ Relay integration for [Amelisa](https://github.com/amelisa/amelisa)
 ### Features
 
 - NetworkLayer implementation
-- realtime subscriptions
-- offline
+- realtime subscriptions (not implemented, no [official support](https://github.com/facebook/relay/issues/541))
+- offline (proof of concept)
 - tests
 
 ### Installation
