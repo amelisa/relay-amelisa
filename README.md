@@ -35,6 +35,9 @@ Relay.injectNetworkLayer(
 
 Read [documentation](http://amelisajs.com/docs/relay) for more information.
 
+### Example
+- [amelisa-crud-example](https://github.com/amelisa/amelisa-crud-example) example app
+
 ### MIT License
 Copyright (c) 2016 by Vladimir Makhaev
 
