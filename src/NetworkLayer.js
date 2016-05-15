@@ -32,7 +32,8 @@ class NetworkLayer {
   }
 
   supports (...options) {
-    return true
+    // Does not support the only defined option, 'defer'
+    return false
   }
 }
 
